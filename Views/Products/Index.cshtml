@@ -1,0 +1,60 @@
+﻿@model ProductsListViewModel
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>Products</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+
+<div class="row">
+    @foreach (var item in Model.Products)
+    {
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body position-relative p-0">
+                    <a asp-action="ProductDetails" asp-route-id="@item.Id" class="stretched-link text-decoration-none">
+                        <img src="~/imgs/@item.PhotoPath" class="card-img-top img-fluid" alt="Product Photo" style="height: 300px; object-fit: cover;" />
+                        <div class="overlay position-absolute bottom-0 start-0 bg-transparent text-light p-2">
+                            <h5 class="card-title mb-0">@Html.DisplayFor(modelItem => item.Name)</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="card-footer text-center p-0">
+                    <form asp-action="ProcessPayment" method="post" class="w-100">
+                        <input type="hidden" name="amount" value="@item.Price" />
+                        <button type="submit" class="btn btn-primary w-100" style="border-radius: 0;">$ @item.Price</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        @if (Model.PaginationInfo.CurrentPage > 1)
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Index", new { page = Model.PaginationInfo.CurrentPage - 1 })">Previous</a>
+            </li>
+        }
+
+        @for (int i = 1; i <= Math.Ceiling((double)Model.PaginationInfo.TotalItems / Model.PaginationInfo.ItemsPerPage); i++)
+        {
+            <li class="page-item @(i == Model.PaginationInfo.CurrentPage ? "active" : "")">
+                <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+            </li>
+        }
+
+        @if (Model.PaginationInfo.CurrentPage < Math.Ceiling((double)Model.PaginationInfo.TotalItems / Model.PaginationInfo.ItemsPerPage))
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Index", new { page = Model.PaginationInfo.CurrentPage + 1 })">Next</a>
+            </li>
+        }
+    </ul>
+</nav>
