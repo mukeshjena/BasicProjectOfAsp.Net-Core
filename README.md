@@ -1,7 +1,3 @@
-Sure! Below is a template for your `README.md` file, designed to explain your project clearly and with a modern touch.
-
----
-
 # PracticeForRevision
 
 ![Project Logo](path_to_logo_image)
@@ -134,9 +130,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 For any questions or feedback, please contact:
 
 - **Mukesh Jena**
-- [LinkedIn](https://www.linkedin.com/in/yourprofile)
-- [Email](mailto:your.email@example.com)
+- [LinkedIn](https://www.linkedin.com/in/mukeshjena)
+- [Email](mailto:muk3shjena@gmail.com)
 
----
-
-Feel free to adjust the content and links to match your project specifics and personal details. This `README.md` template provides a clear and structured presentation for your project, making it easy to showcase on your portfolio.
+--
