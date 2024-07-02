@@ -4,51 +4,51 @@
     ViewData["Title"] = "Product Details";
 }
 
-<h1>Product Details</h1>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm rounded-3 animate__animated animate__fadeIn">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="~/imgs/@Model.PhotoPath" alt="Product Photo" class="img-thumbnail rounded-3" style="max-width: 200px; height: auto;" />
+                        </div>
+                        <div class="col-md-8">
+                            <h4 class="card-title">@Html.DisplayFor(model => model.Name)</h4>
+                            <hr />
+                            <dl class="row">
+                                <dt class="col-sm-4">Description:</dt>
+                                <dd class="col-sm-8">@Html.DisplayFor(model => model.Description)</dd>
 
-<div class="card w-50">
-    <div class="card-body">
-        <h4 class="card-title">@Html.DisplayFor(model => model.Name)</h4>
-        <hr />
-        <div class="row">
-            <div class="col-md-4">
-                <img src="~/imgs/@Model.PhotoPath" alt="Product Photo" class="img-thumbnail" style="max-width: 200px; height: auto;" />
-            </div>
-            <div class="col-md-8">
-                <dl class="row">
-                    <dt class="col-sm-4">Description:</dt>
-                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Description)</dd>
-
-                    <dt class="col-sm-4">Price:</dt>
-                    <dd class="col-sm-8">$ @Html.DisplayFor(model => model.Price)</dd>
-                </dl>
+                                <dt class="col-sm-4">Price:</dt>
+                                <dd class="col-sm-8">$ @Html.DisplayFor(model => model.Price)</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-white border-0 d-flex justify-content-between">
+                    <form asp-action="DeleteConfirmed" method="post">
+                        <input type="hidden" asp-for="Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">Delete Product</button>
+                    </form>
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-secondary btn-sm">Edit Product Details</a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card-footer">
-        <form asp-action="DeleteConfirmed" method="post">
-            <input type="hidden" asp-for="Id" />
-            <input type="submit" value="Delete Product" class="btn btn-danger" /> |
-            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-secondary btn-sm">Edit Product Details</a>
-        </form>
     </div>
 </div>
 
 <style>
-    /* Optional: Add custom CSS styles */
     .card {
-        margin-top: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
     }
 
-    .card-body {
-        padding: 20px;
+    .btn {
+        transition: all 0.3s ease;
     }
 
-    .card-footer {
-        background-color: #f8f9fa;
-        padding: 10px 20px;
-    }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 </style>

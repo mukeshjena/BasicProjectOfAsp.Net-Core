@@ -1,24 +1,55 @@
-﻿<!-- Success.cshtml -->
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <title>Payment Success</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Add any additional styles or scripts here -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 40px;
+        }
+
+        .success-icon {
+            font-size: 60px;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #004d99;
+            }
+    </style>
 </head>
 <body>
     <div class="container">
-        <div class="row mt-5">
-            <div class="col-md-6 offset-md-3">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+            <div class="col-md-6">
                 <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title text-success">Payment Successful!</h3>
-                        <p class="card-text">Thank you for your payment.</p>
-                        <!-- Add any additional information or instructions here -->
+                    <div class="card-body text-center">
+                        <i class="fas fa-check-circle success-icon"></i>
+                        <h3 class="card-title font-weight-bold mb-4">Payment Successful!</h3>
+                        <p class="card-text mb-4">Thank you for your payment.</p>
+                        <a asp-for="Products" asp-action="Index" class="btn btn-primary btn-lg">Continue Shopping</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
 </body>
 </html>
