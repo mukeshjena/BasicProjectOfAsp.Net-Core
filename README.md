@@ -13,7 +13,6 @@
 - [Logging Service](#logging-service)
 - [Export Service](#export-service)
 - [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 ## Introduction
@@ -120,10 +119,6 @@ The export service generates an Excel file containing data from the products and
 ## Contributing
 
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
